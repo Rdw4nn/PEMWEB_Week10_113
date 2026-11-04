@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Environment (jangan commit kredensial Neon!)
+.env
+.env.*
+!.env.example
+
+# Build / generated
+generated/
+dist/
+
+# Arsip tugas (dapat berisi .env lama - jangan ikut repo)
+*.zip
+
+# OS
+.DS_Store
+Thumbs.db

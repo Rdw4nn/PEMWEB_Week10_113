@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manajemen Produk - ITS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Manajemen Produk</h1>
+
+    <!-- Form Tambah / Edit -->
+    <div class="card">
+      <h2 id="form-title">Tambah Produk</h2>
+      <form id="product-form">
+        <input type="hidden" id="product-id">
+        <div class="form-group">
+          <label>Nama Produk:</label>
+          <input type="text" id="product-name" required placeholder="Contoh: Pensil 2B">
+        </div>
+        <div class="form-group">
+          <label>Harga (Rp):</label>
+          <input type="number" id="product-price" required placeholder="Contoh: 3000">
+        </div>
+        <button type="submit" id="btn-save">Simpan</button>
+        <button type="button" id="btn-cancel" class="btn-secondary" style="display:none;">Batal</button>
+      </form>
+    </div>
+
+    <!-- Tabel Daftar Produk -->
+    <div class="card">
+      <h2>Daftar Produk</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nama Produk</th>
+            <th>Harga</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="product-list">
+          <!-- Data diisi oleh JS -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
