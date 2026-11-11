@@ -124,12 +124,13 @@ Produk baru ditambahkan melalui form; data terkirim ke endpoint `/api/products` 
 
 Produk diedit melalui endpoint PUT berdasarkan ID; perubahan harga/nama langsung tersimpan di database.
 
-![Bukti PUT / Edit](screenshot/PUT%20(Edit).png)
+![Bukti PUT / Edit](screenshot/PUT.png)
 
 ### **DELETE** — Menghapus Produk
 
 Produk dihapus melalui endpoint DELETE; baris yang bersangkutan hilang dari tabel `products` di Neon.
 
+![Bukti DELETE](screenshot/DELETE(1).png)
 ![Bukti DELETE](screenshot/DELETE.png)
 
 ---
