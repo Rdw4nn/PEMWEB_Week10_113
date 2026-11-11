@@ -1,14 +1,18 @@
-# 📦 Tugas Week 9 — Express CRUD dengan Prisma & PostgreSQL (Neon)
+# Tugas Week 10 | Express CRUD dengan Prisma & PostgreSQL (Neon)
+
+| No  | Nama                           | NRP        |
+| --- | ------------------------------ | ---------- |
+| 1   | Muhammmad Ridwan               | 5027251113 |
 
 Sistem manajemen produk (Create, Read, Update, Delete) yang dibangun dengan **Express.js**, menggunakan **Prisma ORM** sebagai penghubung ke database **PostgreSQL** yang di-hosting di cloud **[Neon](https://neon.tech)**. Berbeda dengan versi sebelumnya yang menyimpan data di memori, kini data tersimpan permanen di database cloud.
 
-## 🖼️ Preview Aplikasi
+## Preview Aplikasi
 
 ![Preview aplikasi](screenshot/GET.png)
 
 ---
 
-## 🚀 Teknologi yang Digunakan
+## Teknologi yang Digunakan
 
 | Teknologi | Keterangan |
 |---|---|
@@ -20,17 +24,18 @@ Sistem manajemen produk (Create, Read, Update, Delete) yang dibangun dengan **Ex
 
 ---
 
-## 📁 Struktur Proyek
+## Struktur Proyek
 
 ```
-tugas week 9/
+express-crud-demo/
 ├── prisma/
 │   ├── schema.prisma                    # Definisi model & koneksi database
 │   └── migrations/                      # Riwayat migrasi tabel
 ├── src/
 │   ├── index.js                         # Entry point server (port 3000)
 │   ├── app.js                           # Konfigurasi Express & middleware
-│   ├── prisma.js                        # Instance PrismaClient
+│   ├── lib/
+│   │   └── prisma.js                    # Instance PrismaClient
 │   ├── routes/
 │   │   └── product.routes.js            # Routing endpoint /api/products
 │   └── controllers/
@@ -47,7 +52,7 @@ tugas week 9/
 
 ---
 
-## ⛓️ Alur Data
+## Alur Data
 
 ```
 Browser (public/main.js)
@@ -59,7 +64,7 @@ Express API (src/index.js → app.js → routes)
 Controller (src/controllers/product.controller.js)
    │  prisma.product.create() / findMany() / update() / delete()
    ▼
-Prisma Client (src/prisma.js) + schema.prisma
+Prisma Client (src/lib/prisma.js) + schema.prisma
    │  SQL: INSERT / SELECT / UPDATE / DELETE
    ▼
 PostgreSQL "products" table — ☁️ Neon Cloud
@@ -67,7 +72,7 @@ PostgreSQL "products" table — ☁️ Neon Cloud
 
 ---
 
-## 📋 API Endpoint
+## API Endpoint
 
 | Metode | Endpoint | Fungsi |
 |---|---|---|
@@ -78,7 +83,7 @@ PostgreSQL "products" table — ☁️ Neon Cloud
 
 ---
 
-## 🛠️ Cara Menjalankan
+## Cara Menjalankan
 
 1. **Install dependensi**
    ```bash
@@ -101,27 +106,27 @@ PostgreSQL "products" table — ☁️ Neon Cloud
 
 ---
 
-## 📸 Bukti Pengujian (Screenshot)
+## Bukti Pengujian (Screenshot)
 
-### 1️⃣ GET — Menampilkan Semua Produk
+### **GET** — Menampilkan Semua Produk
 
 Data produk berhasil diambil dari database Neon dan ditampilkan di halaman utama.
 
 ![Bukti GET](screenshot/GET.png)
 
-### 2️⃣ POST — Menambah Produk Baru
+### **POST** — Menambah Produk Baru
 
 Produk baru ditambahkan melalui form; data terkirim ke endpoint `/api/products` dan tersimpan di tabel `products` pada Neon.
 
 ![Bukti POST / Add](screenshot/ADD.png)
 
-### 3️⃣ PUT — Mengubah Produk
+### **PUT** — Mengubah Produk
 
 Produk diedit melalui endpoint PUT berdasarkan ID; perubahan harga/nama langsung tersimpan di database.
 
 ![Bukti PUT / Edit](screenshot/PUT%20(Edit).png)
 
-### 4️⃣ DELETE — Menghapus Produk
+### **DELETE** — Menghapus Produk
 
 Produk dihapus melalui endpoint DELETE; baris yang bersangkutan hilang dari tabel `products` di Neon.
 
@@ -129,17 +134,9 @@ Produk dihapus melalui endpoint DELETE; baris yang bersangkutan hilang dari tabe
 
 ---
 
-## ✅ Kenapa ORM / Prisma?
+## Kenapa ORM / Prisma?
 
-- **Tidak perlu menulis SQL manual** — query dibangun lewat API Prisma Client yang type-safe.
-- **Schema terdokumentasi** — bentuk tabel didefinisikan di `prisma/schema.prisma`.
-- **Migration terkelola** — setiap perubahan struktur tabel tercatat di folder `prisma/migrations/`, sehingga database bisa direplikasi ulang dari nol.
-- **Serverless-friendly** — Prisma bekerja baik dengan pooled connection string milik Neon.
-
----
-
-## 👤 Identitas
-
-**Muhammad Ridwan** — 5027251113
-
-Mata Kuliah: Pemrograman Web — Tugas Minggu 9
+- **Tidak perlu menulis SQL manual,** query dibangun lewat API Prisma Client yang type-safe.
+- **Schema terdokumentasi,** bentuk tabel didefinisikan di `prisma/schema.prisma`.
+- **Migration terkelola,** setiap perubahan struktur tabel tercatat di folder `prisma/migrations/`, sehingga database bisa direplikasi ulang dari nol.
+- **Serverless-friendly,** Prisma bekerja baik dengan pooled connection string milik Neon.
